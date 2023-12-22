@@ -16,6 +16,9 @@ public class Tarefa {
     private Long id;
 
     @Column(nullable = false, length = 150)
+    private String nome;
+
+    @Column(nullable = false, length = 150)
     private String descricao;
 
     @ManyToOne

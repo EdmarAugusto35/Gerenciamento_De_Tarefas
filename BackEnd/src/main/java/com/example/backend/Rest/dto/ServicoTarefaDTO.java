@@ -11,7 +11,10 @@ import javax.validation.constraints.NotNull;
 public class ServicoTarefaDTO {
 
     @NotNull(message = "{campo.cliente.obrigatorio}")
-    private Integer idCliente;
+    private Long idCliente;
+
+    @NotEmpty(message = "{campo.nome.obrigatorio}")
+    private String nome;
 
     @NotEmpty(message = "{campo.descricao.obrigatorio}")
     private String descricao;
