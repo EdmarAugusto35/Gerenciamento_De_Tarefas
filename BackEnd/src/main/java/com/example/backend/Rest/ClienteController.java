@@ -4,6 +4,7 @@ import com.example.backend.Model.entidade.Cliente;
 import com.example.backend.Model.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -23,9 +24,9 @@ public class ClienteController {
 
     //Salvando Cliente no banco de Dados
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public Cliente salvar(@RequestBody @Valid Cliente cliente) {
-        return clienteRepository.save(cliente);
+    public ResponseEntity<Cliente> salvar(@RequestBody @Valid Cliente cliente) {
+        cliente =  clienteRepository.save(cliente);
+        return new ResponseEntity<>(cliente,HttpStatus.CREATED);
     }
 
     // Buscando todos os clientes Cadastrados
