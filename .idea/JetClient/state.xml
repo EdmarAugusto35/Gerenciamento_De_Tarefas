@@ -10,8 +10,8 @@
                 <authState>
                   <option name="basic">
                     <basicAuthState>
-                      <option name="pass" value="1234567" />
-                      <option name="username" value="ed" />
+                      <option name="pass" value="admin" />
+                      <option name="username" value="admin" />
                     </basicAuthState>
                   </option>
                   <option name="type" value="BASIC" />
@@ -54,7 +54,7 @@
               </option>
               <option name="body">
                 <bodyState>
-                  <option name="raw" value="{&#10;  &quot;nome&quot;: &quot;jonh&quot;,&#10;  &quot;cpf&quot;: &quot;12345678907&quot;,&#10;  &quot;email&quot;: &quot;jonhjonh@gmail.com&quot;,&#10;  &quot;dataDeCadastro&quot;: &quot;1997/12/12&quot;&#10;}" />
+                  <option name="raw" value="{&#10;  &quot;nome&quot;: &quot;jonh&quot;,&#10;  &quot;cpf&quot;: &quot;14277117635&quot;,&#10;  &quot;email&quot;: &quot;jonhjonh@gmail.com&quot;&#10;}" />
                   <option name="type" value="JSON" />
                 </bodyState>
               </option>
@@ -121,6 +121,38 @@
               <option name="method" value="PUT" />
               <option name="name" value="http://localhost:8080/api/Clientes/1" />
               <option name="url" value="http://localhost:8080/api/Clientes/1" />
+            </requestState>
+            <requestState>
+              <option name="auth">
+                <authState>
+                  <option name="basic">
+                    <basicAuthState>
+                      <option name="pass" value="admin" />
+                      <option name="username" value="admin" />
+                    </basicAuthState>
+                  </option>
+                  <option name="type" value="BASIC" />
+                </authState>
+              </option>
+              <option name="body">
+                <bodyState>
+                  <option name="raw" value="{&#10;  &quot;username&quot;: &quot;mai&quot;,&#10;  &quot;password&quot;: &quot;12345&quot;&#10;}" />
+                  <option name="type" value="JSON" />
+                </bodyState>
+              </option>
+              <option name="description" value="salvar um usuario" />
+              <option name="headers">
+                <list>
+                  <headerState>
+                    <option name="key" value="Content-Type" />
+                    <option name="value" value="application/json" />
+                  </headerState>
+                </list>
+              </option>
+              <option name="id" value="fdf870a5-ed77-4da1-92da-32946e86edc7" />
+              <option name="method" value="POST" />
+              <option name="name" value="http://localhost:8080/api/auth" />
+              <option name="url" value="http://localhost:8080/api/auth/signin" />
             </requestState>
           </list>
         </option>
