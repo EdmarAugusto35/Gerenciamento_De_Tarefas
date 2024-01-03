@@ -1,9 +1,9 @@
 package com.example.backend.Rest;
 
 import com.example.backend.Model.entidade.Cliente;
-import com.example.backend.Model.entidade.Tarefa;
+import com.example.backend.Model.entidade.Servico;
 import com.example.backend.Model.repository.ClienteRepository;
-import com.example.backend.Model.repository.TarefaRepository;
+import com.example.backend.Model.repository.ServicoRepository;
 import com.example.backend.Rest.dto.ServicoTarefaDTO;
 import com.example.backend.Rest.util.BigDecimalConverter;
 import lombok.RequiredArgsConstructor;
@@ -19,15 +19,15 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/tarefas")
 @RequiredArgsConstructor
-public class TarefaController {
+public class ServicoController {
 
     private final ClienteRepository clienteRepository;
-    private final TarefaRepository tarefaRepository;
+    private final ServicoRepository servicoRepository;
     private final BigDecimalConverter bigDecimalConverter;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Tarefa salvar(@RequestBody @Valid ServicoTarefaDTO servicoTarefaDTO){
+    public Servico salvar(@RequestBody @Valid ServicoTarefaDTO servicoTarefaDTO){
         LocalDate date = LocalDate.parse(servicoTarefaDTO.getData(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         Long idCliente = servicoTarefaDTO.getIdCliente();
 
@@ -35,18 +35,18 @@ public class TarefaController {
                 .findById(idCliente)
                 .orElseThrow(() -> new ResponseStatusException( HttpStatus.BAD_REQUEST, "Cliente inexistente." ));
 
-        Tarefa tarefa = new Tarefa();
-        tarefa.setDescricao(servicoTarefaDTO.getDescricao());
-        tarefa.setNome(servicoTarefaDTO.getNome());
-        tarefa.setData(date);
-        tarefa.setCliente(cliente);
-        tarefa.setValor(bigDecimalConverter.converter(servicoTarefaDTO.getPreco()));
+        Servico servico = new Servico();
+        servico.setDescricao(servicoTarefaDTO.getDescricao());
+        servico.setNome(servicoTarefaDTO.getNome());
+        servico.setData(date);
+        servico.setCliente(cliente);
+        servico.setValor(bigDecimalConverter.converter(servicoTarefaDTO.getPreco()));
 
-        return tarefaRepository.save(tarefa);
+        return servicoRepository.save(servico);
     }
 
     @GetMapping
-    public List<Tarefa> pesquisarTarefa(
+    public List<Servico> pesquisarTarefa(
             @RequestParam(value = "nome", required = false) String nome,
             @RequestParam(value = "mes", required = false) Integer mes){
         return clienteRepository.findByNomeClienteAndMes("%" + nome + "%", mes);

@@ -136,7 +136,7 @@
               </option>
               <option name="body">
                 <bodyState>
-                  <option name="raw" value="{&#10;  &quot;username&quot;: &quot;mai&quot;,&#10;  &quot;password&quot;: &quot;12345&quot;&#10;}" />
+                  <option name="raw" value="{&#10;  &quot;username&quot;: &quot;mai&quot;,&#10;  &quot;roles&quot;: &quot;12345&quot;&#10;}" />
                   <option name="type" value="JSON" />
                 </bodyState>
               </option>
